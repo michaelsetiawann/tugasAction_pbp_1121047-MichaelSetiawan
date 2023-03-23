@@ -19,3 +19,10 @@ type Transactions struct {
 	ProductID int `json:"productId"`
 	Quantity  int `json:"quantity"`
 }
+
+type Transactions1 struct {
+	ID        int `json:"id"`
+	UserID    int `json:"userId"`
+	ProductID int `json:"productId"`
+	Quantity  int `json:"quantity"`
+}
