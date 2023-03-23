@@ -1,15 +1,15 @@
-name: ReviewDog Base
+name: Run Gosec
 on:
   pull_request:
-    branches: [master, main]
-
 jobs:
-  build:
-    name: ReviewDog Base
+  tests:
     runs-on: ubuntu-latest
-
-steps:
-  - uses: reviewdog/action-setup@v1
-    with:
-      reviewdog_version: v0.14.1
-  - run: reviewdog -version
+    env:
+      GO111MODULE: on
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v2
+      - name: Run Gosec Security Scanner
+        uses: securego/gosec@master
+        with:
+          args: ./...
